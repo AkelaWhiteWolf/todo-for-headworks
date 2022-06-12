@@ -1,13 +1,12 @@
-import { useRef } from "react";
-import { ITodoList } from "../../types/ITodoList";
+import { FC, useRef } from "react";
 
 import "./TodoCreation.css";
 
 interface ITodoCreation {
-  addTodo: (todo: ITodoList) => void;
+  addTodo: (label: string, category?: string, isDone?: boolean) => void;
 }
 
-const TodoCreation = ({ addTodo }: { addTodo: ITodoCreation }) => {
+const TodoCreation: FC<ITodoCreation> = ({ addTodo }) => {
   const todoInput = useRef(null);
 
   return (
