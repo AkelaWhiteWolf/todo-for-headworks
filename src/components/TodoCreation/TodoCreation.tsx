@@ -1,13 +1,20 @@
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
+
+import ChooseCategoryContainer from "../ChooseCategoryContainer";
+
+import { ITodoCreation } from "../../types/ITodoCreation";
 
 import "./TodoCreation.css";
 
-interface ITodoCreation {
-  addTodo: (label: string, category?: string, isDone?: boolean) => void;
-}
-
-const TodoCreation: FC<ITodoCreation> = ({ addTodo }) => {
+const TodoCreation: FC<ITodoCreation> = ({
+  addTodo,
+  categories,
+  addCategory,
+}) => {
+  const [currentCategory, setCurrentCategory] = useState("All");
   const todoInput = useRef(null);
+
+  const chooseCategory = (category: string) => setCurrentCategory(category);
 
   return (
     <div className="TodoCreation">
@@ -18,27 +25,30 @@ const TodoCreation: FC<ITodoCreation> = ({ addTodo }) => {
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             // @ts-ignore
-            addTodo(todoInput.current.value);
+            addTodo(todoInput.current.value, currentCategory);
             // @ts-ignore
             todoInput.current.value = "";
           }
         }}
       />
 
-      <button>
-        Choose category <span>{">"}</span>
-      </button>
-
       <button
         onClick={(e) => {
           // @ts-ignore
-          addTodo(todoInput.current.value);
+          addTodo(todoInput.current.value, currentCategory);
           // @ts-ignore
           todoInput.current.value = "";
         }}
       >
         Create
       </button>
+
+      <ChooseCategoryContainer
+        categories={categories}
+        addCategory={addCategory}
+        currentCategory={currentCategory}
+        chooseCategory={chooseCategory}
+      />
     </div>
   );
 };
