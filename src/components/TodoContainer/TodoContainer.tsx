@@ -8,8 +8,11 @@ import { ITodoList } from "../../types/ITodoList";
 const TodoContainer = () => {
   const [todos, setTodos] = useState<ITodoList[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
+  const [showingCategory, setShowingCategory] = useState("All");
 
   const addTodo = (label: string, category: string, isDone = false) => {
+    label = label.trim();
+
     const todo: ITodoList = {
       label,
       category,
@@ -34,6 +37,8 @@ const TodoContainer = () => {
   };
 
   const addCategory = (category: string) => {
+    category = category.trim();
+
     if (category) {
       setCategories((prev) => [...prev, category]);
     }
@@ -53,6 +58,12 @@ const TodoContainer = () => {
     });
   };
 
+  const showListsByCategory = (category: string) => {
+    category = category.trim();
+
+    setShowingCategory(category);
+  };
+
   return (
     <>
       <TodoCreation
@@ -61,9 +72,17 @@ const TodoContainer = () => {
         addCategory={addCategory}
       />
 
-      <CategoriesList categories={categories} />
+      <CategoriesList
+        categories={categories}
+        deleteCategory={deleteCategory}
+        showListsByCategory={showListsByCategory}
+      />
 
-      <TodoLists todos={todos} deleteTodo={deleteTodo} />
+      <TodoLists
+        todos={todos}
+        deleteTodo={deleteTodo}
+        showingCategory={showingCategory}
+      />
     </>
   );
 };

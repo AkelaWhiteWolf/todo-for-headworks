@@ -18,6 +18,7 @@ const ChooseCategoryContainer: FC<Props> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  console.log(categories);
 
   return (
     <div className="ChooseCategoryContainer">
@@ -41,7 +42,12 @@ const ChooseCategoryContainer: FC<Props> = ({
         </ul>
       )}
 
-      {isModalOpen && <NewCategoryModal close={() => setIsModalOpen(false)} />}
+      {isModalOpen && (
+        <NewCategoryModal
+          close={() => setIsModalOpen(false)}
+          addCategory={addCategory}
+        />
+      )}
     </div>
   );
 };
