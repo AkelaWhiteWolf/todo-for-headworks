@@ -5,6 +5,8 @@ import TodoLists from "../TodoLists";
 
 import { ITodoList } from "../../types/ITodoList";
 
+import "./TodoContainer.css";
+
 const TodoContainer = () => {
   const [todos, setTodos] = useState<ITodoList[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
@@ -65,7 +67,7 @@ const TodoContainer = () => {
   };
 
   return (
-    <>
+    <div className="TodoContainer App-TodoContainer">
       <TodoCreation
         addTodo={addTodo}
         categories={categories}
@@ -74,6 +76,7 @@ const TodoContainer = () => {
 
       <CategoriesList
         categories={categories}
+        showingCategory={showingCategory}
         deleteCategory={deleteCategory}
         showListsByCategory={showListsByCategory}
       />
@@ -83,7 +86,7 @@ const TodoContainer = () => {
         deleteTodo={deleteTodo}
         showingCategory={showingCategory}
       />
-    </>
+    </div>
   );
 };
 

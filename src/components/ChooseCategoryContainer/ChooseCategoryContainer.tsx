@@ -27,17 +27,24 @@ const ChooseCategoryContainer: FC<Props> = ({
           setIsOpen((prev) => !prev);
         }}
         title="Choose category for task"
+        className="Btn Body-Btn"
       >
         {currentCategory} <span>{">"}</span>
       </button>
 
       {isOpen && (
         <ul>
-          <li onClick={() => setIsModalOpen(true)}>Add new category...</li>
-          <li onClick={() => chooseCategory("All")}>All</li>
+          <li onClick={() => setIsModalOpen(true)} className="Li">
+            Add new category...
+          </li>
+          <li onClick={() => chooseCategory("All")} className="Li">
+            All
+          </li>
 
           {categories.map((categ) => (
-            <li onClick={() => chooseCategory(categ)}>{categ}</li>
+            <li onClick={() => chooseCategory(categ)} className="Li">
+              {categ}
+            </li>
           ))}
         </ul>
       )}

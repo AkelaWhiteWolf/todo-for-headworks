@@ -3,18 +3,20 @@ import "./CategoriesList.css";
 
 interface Props {
   categories: string[];
+  showingCategory: string;
   deleteCategory: (categoryToDelete: string) => void;
   showListsByCategory: (category: string) => void;
 }
 
 const CategoriesList: FC<Props> = ({
   categories,
+  showingCategory,
   deleteCategory,
   showListsByCategory,
 }) => {
   return (
     <ul>
-      <li onClick={() => showListsByCategory("All")}>
+      <li onClick={() => showListsByCategory("All")} className="Li">
         <span>All</span>
       </li>
       {categories.map((category, index) => (

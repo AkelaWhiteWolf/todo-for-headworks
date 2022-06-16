@@ -26,8 +26,11 @@ const NewCategoryModal: FC<Props> = ({ close, addCategory }) => {
             }
           }}
         />
-        {/* @ts-ignore */}
-        <button onClick={() => addCategory(input.current.value.trim())}>
+        <button
+          // @ts-ignore
+          onClick={() => addCategory(input.current.value.trim())}
+          className="Btn Body-Btn"
+        >
           Create
         </button>
         <button onClick={close}>Cancel</button>

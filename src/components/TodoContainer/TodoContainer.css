@@ -1,0 +1,9 @@
+.TodoContainer {
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+.App-TodoContainer {
+  width: 100%;
+  max-width: 1170px;
+}
