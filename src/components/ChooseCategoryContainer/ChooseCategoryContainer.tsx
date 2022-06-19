@@ -33,10 +33,22 @@ const ChooseCategoryContainer: FC<Props> = ({
 
       {isOpen && (
         <ul className="ChooseCategoryContainer-Categories">
-          <li onClick={() => setIsModalOpen(true)} className="Li">
+          <li
+            onClick={() => {
+              setIsModalOpen(true);
+              setIsOpen(false);
+            }}
+            className="Li ChooseCategoryContainer-Li"
+          >
             Add new category...
           </li>
-          <li onClick={() => chooseCategory("All")} className="Li">
+          <li
+            onClick={() => {
+              chooseCategory("All");
+              setIsOpen(false);
+            }}
+            className="Li ChooseCategoryContainer-Li"
+          >
             All
           </li>
 

@@ -9,6 +9,8 @@
   --main-blue-hover: rgb(24,144,255);
   --main-green: rgba(37,180,153,0.7);
   --main-green-hover: rgb(37,180,153);
+  --main-green-light: rgba(37,180,153,0.3);
+  --main-pink: rgba(229,92,138,0.7)
 }
 
 .Btn {
