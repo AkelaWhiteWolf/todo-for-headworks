@@ -13,7 +13,7 @@ const NewCategoryModal: FC<Props> = ({ close, addCategory }) => {
 
   return createPortal(
     <div className="ModalWrapper" onClick={close}>
-      <div className="Modal" onClick={(e) => e.stopPropagation()}>
+      <div className="Modal">
         <input
           type="text"
           placeholder="New category..."
@@ -25,6 +25,7 @@ const NewCategoryModal: FC<Props> = ({ close, addCategory }) => {
               close();
             }
           }}
+          onClick={(e) => e.stopPropagation()}
         />
         <button
           // @ts-ignore

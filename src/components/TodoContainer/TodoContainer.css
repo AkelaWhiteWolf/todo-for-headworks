@@ -6,4 +6,5 @@
 .App-TodoContainer {
   width: 100%;
   max-width: 1170px;
+  padding: 15px;
 }

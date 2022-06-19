@@ -7,6 +7,8 @@
 :root {
   --main-blue: rgba(24,144,255,0.7);
   --main-blue-hover: rgb(24,144,255);
+  --main-green: rgba(37,180,153,0.7);
+  --main-green-hover: rgb(37,180,153);
 }
 
 .Btn {
@@ -18,11 +20,17 @@
   height: 40px;
   padding: 5px;
 }
-.Btn-Blue {
+.Btn_Blue {
   background-color: var(--main-blue);
 }
-.Btn-Blue:hover {
+.Btn_Blue:hover {
   background-color: var(--main-blue-hover);
+}
+.Btn_Green {
+  background-color: var(--main-green);
+}
+.Btn_Green:hover {
+  background-color: var(--main-green-hover);
 }
 
 .Input {

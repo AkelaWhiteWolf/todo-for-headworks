@@ -1,0 +1,8 @@
+.ChooseCategoryContainer-Btn {
+  width: 100%;
+}
+
+.ChooseCategoryContainer-Categories {
+  z-index: 2;
+  position: relative;
+}

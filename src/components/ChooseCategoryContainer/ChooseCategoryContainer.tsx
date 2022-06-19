@@ -18,7 +18,6 @@ const ChooseCategoryContainer: FC<Props> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(categories);
 
   return (
     <div className="ChooseCategoryContainer">
@@ -27,13 +26,13 @@ const ChooseCategoryContainer: FC<Props> = ({
           setIsOpen((prev) => !prev);
         }}
         title="Choose category for task"
-        className="Btn Body-Btn"
+        className="Btn Body-Btn ChooseCategoryContainer-Btn Btn_Green"
       >
-        {currentCategory} <span>{">"}</span>
+        {currentCategory} {isOpen ? <span>&#9660;</span> : <span>&#9658;</span>}
       </button>
 
       {isOpen && (
-        <ul>
+        <ul className="ChooseCategoryContainer-Categories">
           <li onClick={() => setIsModalOpen(true)} className="Li">
             Add new category...
           </li>
@@ -41,8 +40,12 @@ const ChooseCategoryContainer: FC<Props> = ({
             All
           </li>
 
-          {categories.map((categ) => (
-            <li onClick={() => chooseCategory(categ)} className="Li">
+          {categories.map((categ, index) => (
+            <li
+              key={categ + index}
+              onClick={() => chooseCategory(categ)}
+              className="Li"
+            >
               {categ}
             </li>
           ))}

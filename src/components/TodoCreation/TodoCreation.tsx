@@ -40,7 +40,7 @@ const TodoCreation: FC<Props> = ({ addTodo, categories, addCategory }) => {
           // @ts-ignore
           todoInput.current.value = "";
         }}
-        className="Btn Body-Btn Btn-Blue"
+        className="Btn Body-Btn Btn_Blue"
       >
         Create
       </button>
