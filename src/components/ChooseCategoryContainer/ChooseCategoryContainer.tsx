@@ -55,8 +55,11 @@ const ChooseCategoryContainer: FC<Props> = ({
           {categories.map((categ, index) => (
             <li
               key={categ + index}
-              onClick={() => chooseCategory(categ)}
-              className="Li"
+              onClick={() => {
+                chooseCategory(categ);
+                setIsOpen(false);
+              }}
+              className="Li ChooseCategoryContainer-Li"
             >
               {categ}
             </li>
@@ -68,6 +71,7 @@ const ChooseCategoryContainer: FC<Props> = ({
         <NewCategoryModal
           close={() => setIsModalOpen(false)}
           addCategory={addCategory}
+          chooseCategory={chooseCategory}
         />
       )}
     </div>

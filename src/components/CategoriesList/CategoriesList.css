@@ -1,0 +1,30 @@
+.CategoriesListContainer {
+  display: flex;
+}
+.Body-CategoriesListContainer {
+  margin: 30px 0;
+}
+
+.CategoriesListContainer-Li {
+  margin-right: 15px;
+  display: flex;
+}
+
+.CategoriesListContainer-CategoryTitle {
+  border: 1px solid brown;
+  border-radius: 7px;
+  padding: 5px;
+  margin-right: 5px;
+}
+.CategoriesListContainer-CategoryTitle[data-showing-category="true"] {
+  border: 3px solid brown;
+}
+
+.CategoriesListContainer-DelBtn {
+  visibility: hidden;
+  font-size: 11px;
+  align-self: flex-start;
+}
+.CategoriesListContainer-DelBtn[data-is-visible="true"] {
+  visibility: visible;
+}

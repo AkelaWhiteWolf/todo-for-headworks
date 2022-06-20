@@ -12,7 +12,6 @@
 .ChooseCategoryContainer-Li {
   background-color: white;
   padding: 5px;
-  border-radius: 7px;
 }
 .ChooseCategoryContainer-Li:first-child {
   border-radius: 7px 7px 0 0;

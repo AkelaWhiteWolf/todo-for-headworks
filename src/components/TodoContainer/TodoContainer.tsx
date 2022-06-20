@@ -60,7 +60,7 @@ const TodoContainer = () => {
     });
   };
 
-  const showListsByCategory = (category: string) => {
+  const chooseCategory = (category: string) => {
     category = category.trim();
 
     setShowingCategory(category);
@@ -78,7 +78,7 @@ const TodoContainer = () => {
         categories={categories}
         showingCategory={showingCategory}
         deleteCategory={deleteCategory}
-        showListsByCategory={showListsByCategory}
+        chooseCategory={chooseCategory}
       />
 
       <TodoLists

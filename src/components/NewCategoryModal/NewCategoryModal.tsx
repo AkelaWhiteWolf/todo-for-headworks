@@ -6,9 +6,14 @@ import "./NewCategoryModal.css";
 interface Props {
   close: () => void;
   addCategory: (category: string) => void;
+  chooseCategory: (category: string) => void;
 }
 
-const NewCategoryModal: FC<Props> = ({ close, addCategory }) => {
+const NewCategoryModal: FC<Props> = ({
+  close,
+  addCategory,
+  chooseCategory,
+}) => {
   const input = useRef<HTMLInputElement>(null);
 
   return createPortal(
@@ -21,7 +26,9 @@ const NewCategoryModal: FC<Props> = ({ close, addCategory }) => {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               // @ts-ignore
-              addCategory(input.current.value.trim());
+              const newCategory = input.current.value.trim();
+              addCategory(newCategory);
+              chooseCategory(newCategory);
               close();
             }
           }}
