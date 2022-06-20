@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 import "./NewCategoryModal.css";
@@ -15,6 +15,18 @@ const NewCategoryModal: FC<Props> = ({
   chooseCategory,
 }) => {
   const input = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key === "Escape") {
+          close();
+        }
+      },
+      { once: true }
+    );
+  }, []);
 
   return createPortal(
     <div className="ModalWrapper" onClick={close}>
@@ -33,6 +45,7 @@ const NewCategoryModal: FC<Props> = ({
             }
           }}
           onClick={(e) => e.stopPropagation()}
+          autoFocus={true}
         />
         <button
           // @ts-ignore
