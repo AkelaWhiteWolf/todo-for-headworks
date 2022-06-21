@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import ChooseCategoryContainer from "../ChooseCategoryContainer";
+
 import { ITodoList } from "../../types/ITodoList";
 
 import "./TodoLists.css";
@@ -12,23 +14,43 @@ interface Props {
 
 const TodoLists: FC<Props> = ({ todos, deleteTodo, showingCategory }) => {
   return (
-    (todos.length && (
-      <ul>
-        {todos.map((elem: ITodoList, index: number) => {
-          if (elem.category === showingCategory || showingCategory === "All") {
-            return (
-              <li key={index}>
-                <span>{elem.label}</span>
+    <ul className="TodoListsContainer Body-TodoListsContainer">
+      {todos.map((elem: ITodoList, index: number) => {
+        if (elem.category === showingCategory || showingCategory === "All") {
+          return (
+            <li key={index} className="Li TodoList Body-TodoList">
+              <span className="TodoList-Label">{elem.label}</span>
 
-                <div onClick={() => deleteTodo(index)}>X</div>
-              </li>
-            );
-          }
+              {/* TODO: add functionality to make todo done */}
 
-          return null;
-        })}
-      </ul>
-    )) || <p>There is no todos now</p>
+              <div
+                onClick={() => {}}
+                title="make done"
+                className="TodoList-Icon"
+              >
+                &#10004;
+              </div>
+
+              <div
+                onClick={() => deleteTodo(index)}
+                title="delete todo"
+                className="TodoList-Icon"
+              >
+                &#128465;
+              </div>
+            </li>
+          );
+        }
+
+        return null;
+      })}
+
+      {!todos.length && (
+        <p className="TodoListsContainer-NoTodosLabel">
+          There is no todos now...
+        </p>
+      )}
+    </ul>
   );
 };
 

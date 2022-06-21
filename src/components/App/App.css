@@ -5,18 +5,29 @@
 }
 
 :root {
+  --main-background: rgb(237,238,240);
+
   --main-blue: rgba(24,144,255,0.7);
   --main-blue-hover: rgb(24,144,255);
   --main-green: rgba(37,180,153,0.7);
   --main-green-hover: rgb(37,180,153);
   --main-green-light: rgba(37,180,153,0.3);
-  --main-pink: rgba(229,92,138,0.7)
+  --main-pink: rgba(229,92,138,0.7);
+  --main-pink-hover: rgba(229,92,138,1);
+  --main-yellow: rgba(231, 231, 124, 0.7);
+  --main-yellow-hover: rgb(231, 231, 124);
+
+  --main-border-radius: 7px;
+}
+
+.Body {
+  background-color: var(--main-background);
 }
 
 .Btn {
   cursor: pointer;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--main-border-radius);
 }
 .Body-Btn {
   height: 40px;
@@ -34,14 +45,20 @@
 .Btn_Green:hover {
   background-color: var(--main-green-hover);
 }
+.Btn_Pink {
+  background-color: var(--main-pink);
+}
+.Btn_Pink:hover {
+  background-color: var(--main-pink-hover);
+}
 
 .Input {
   outline: none;
   border: none;
-  border-bottom: 2px solid var(--main-blue);
+  border-bottom: 2px solid var(--main-yellow);
 }
 .Input:focus {
-  border-bottom: 3px solid var(--main-blue-hover);
+  border-bottom: 3px solid var(--main-yellow-hover);
 }
 .Body-Input {
   padding: 5px;

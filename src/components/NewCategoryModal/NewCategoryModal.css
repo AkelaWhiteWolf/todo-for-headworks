@@ -1,4 +1,4 @@
-.ModalWrapper {
+ .ModalWrapper {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -8,4 +8,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.Modal {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  display: grid;
+  grid-template: 40px / 4fr 1fr 1fr;
+  align-content: center;
+  grid-column-gap: 15px;
+}
+.Body-Modal {
+  width: 100%;
+  max-width: 900px;
+  min-height: 200px;
+  padding: 15px;
 }

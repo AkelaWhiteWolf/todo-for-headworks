@@ -1,0 +1,35 @@
+.TodoListsContainer {
+  border-top: 1px solid grey;
+}
+.Body-TodoListsContainer {
+  padding: 15px 0;
+}
+
+.TodoList {
+  border-radius: var(--main-border-radius);
+  box-shadow: 0 0 4px 0.5px grey;
+  display: grid;
+  grid-template-columns: 7fr 1fr 1fr 1.5fr;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.Body-TodoList {
+  margin: 30px 0;
+  padding: 10px;
+}
+
+.TodoList-Label {
+  justify-self: flex-start;
+}
+
+.TodoList-Icon {
+  font-size: 25px;
+}
+
+.TodoListsContainer-NoTodosLabel {
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+}

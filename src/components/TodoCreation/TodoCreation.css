@@ -4,7 +4,3 @@
   /* grid-template-columns: 4fr 1fr 1fr; */
   grid-column-gap: 15px;
 }
-
-.TodoCreation-Input {
-  flex-basis: 2;
-}

@@ -30,7 +30,7 @@ const NewCategoryModal: FC<Props> = ({
 
   return createPortal(
     <div className="ModalWrapper" onClick={close}>
-      <div className="Modal">
+      <div className="Modal Body-Modal">
         <input
           type="text"
           placeholder="New category..."
@@ -46,15 +46,18 @@ const NewCategoryModal: FC<Props> = ({
           }}
           onClick={(e) => e.stopPropagation()}
           autoFocus={true}
+          className="Input Body-Input"
         />
         <button
           // @ts-ignore
           onClick={() => addCategory(input.current.value.trim())}
-          className="Btn Body-Btn"
+          className="Btn Body-Btn Btn_Blue"
         >
           Create
         </button>
-        <button onClick={close}>Cancel</button>
+        <button onClick={close} className="Btn Body-Btn Btn_Pink">
+          Cancel
+        </button>
       </div>
     </div>,
     // @ts-ignore

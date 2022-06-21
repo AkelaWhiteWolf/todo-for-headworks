@@ -30,7 +30,7 @@ const TodoCreation: FC<Props> = ({ addTodo, categories, addCategory }) => {
             todoInput.current.value = "";
           }
         }}
-        className="Input Body-Input TodoCreation-Input"
+        className="Input Body-Input"
       />
 
       <button

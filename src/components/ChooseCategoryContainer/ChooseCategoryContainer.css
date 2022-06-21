@@ -6,7 +6,7 @@
   z-index: 2;
   position: relative;
   border: 1px solid var(--main-green);
-  border-radius: 7px;
+  border-radius: var(--main-border-radius);
 }
 
 .ChooseCategoryContainer-Li {
@@ -14,10 +14,10 @@
   padding: 5px;
 }
 .ChooseCategoryContainer-Li:first-child {
-  border-radius: 7px 7px 0 0;
+  border-radius: var(--main-border-radius) var(--main-border-radius) 0 0;
 }
 .ChooseCategoryContainer-Li:last-child {
-  border-radius: 0 0 7px 7px;
+  border-radius: 0 0 var(--main-border-radius) var(--main-border-radius);
 }
 .ChooseCategoryContainer-Li:not(.ChooseCategoryContainer-Li:last-child) {
   border-bottom: 1px solid var(--main-green);

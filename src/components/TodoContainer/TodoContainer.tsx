@@ -15,13 +15,15 @@ const TodoContainer = () => {
   const addTodo = (label: string, category: string, isDone = false) => {
     label = label.trim();
 
-    const todo: ITodoList = {
-      label,
-      category,
-      isDone,
-    };
+    if (label) {
+      const todo: ITodoList = {
+        label,
+        category,
+        isDone,
+      };
 
-    setTodos([...todos, todo]);
+      setTodos([...todos, todo]);
+    }
   };
 
   const deleteTodo = (deleteIndex: number) => {
