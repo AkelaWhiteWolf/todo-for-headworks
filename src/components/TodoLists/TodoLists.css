@@ -9,7 +9,7 @@
   border-radius: var(--main-border-radius);
   box-shadow: 0 0 4px 0.5px grey;
   display: grid;
-  grid-template-columns: 7fr 1fr 1fr 1.5fr;
+  grid-template-columns: 8fr 1fr 1fr;
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
@@ -27,8 +27,17 @@
   text-decoration: line-through;
 }
 
+.TodoList-MakeDone {
+  /* color: rgb(179, 0, 0); */
+  color: brown;
+}
+.TodoList-MakeDone[data-is-done="true"] {
+  color: var(--main-green);
+}
+
 .TodoList-Icon {
   font-size: 25px;
+  cursor: pointer;
 }
 
 .TodoListsContainer-NoTodosLabel {

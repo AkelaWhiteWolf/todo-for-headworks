@@ -12,6 +12,7 @@
 .ChooseCategoryContainer-Li {
   background-color: white;
   padding: 5px;
+  cursor: pointer;
 }
 .ChooseCategoryContainer-Li:first-child {
   border-radius: var(--main-border-radius) var(--main-border-radius) 0 0;

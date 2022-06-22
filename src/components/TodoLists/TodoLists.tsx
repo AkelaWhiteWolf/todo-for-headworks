@@ -38,7 +38,8 @@ const TodoLists: FC<Props> = ({
                 <div
                   onClick={() => makeTodoDone(index)}
                   title="make done"
-                  className="TodoList-Icon"
+                  className="TodoList-Icon TodoList-MakeDone"
+                  data-is-done={todo.isDone}
                 >
                   &#10004;
                 </div>

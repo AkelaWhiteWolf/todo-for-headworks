@@ -8,6 +8,7 @@
 .CategoriesListContainer-Li {
   margin-right: 15px;
   display: flex;
+  cursor: pointer;
 }
 
 .CategoriesListContainer-CategoryTitle {
