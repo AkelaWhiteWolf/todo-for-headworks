@@ -23,6 +23,9 @@
 .TodoList-Label {
   justify-self: flex-start;
 }
+.TodoList-Label[data-is-done="true"] {
+  text-decoration: line-through;
+}
 
 .TodoList-Icon {
   font-size: 25px;

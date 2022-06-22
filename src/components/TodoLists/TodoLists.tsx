@@ -11,6 +11,7 @@ interface Props {
   todos: ITodoList[];
   deleteTodo: (index: number) => void;
   undeleteTodo: () => void;
+  makeTodoDone: (indexDone: number) => void;
   showingCategory: string;
 }
 
@@ -18,6 +19,7 @@ const TodoLists: FC<Props> = ({
   todos,
   deleteTodo,
   undeleteTodo,
+  makeTodoDone,
   showingCategory,
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -25,14 +27,16 @@ const TodoLists: FC<Props> = ({
   return (
     <>
       <ul className="TodoListsContainer Body-TodoListsContainer">
-        {todos.map((elem: ITodoList, index: number) => {
-          if (elem.category === showingCategory || showingCategory === "All") {
+        {todos.map((todo: ITodoList, index: number) => {
+          if (todo.category === showingCategory || showingCategory === "All") {
             return (
               <li key={index} className="Li TodoList Body-TodoList">
-                <span className="TodoList-Label">{elem.label}</span>
+                <span className="TodoList-Label" data-is-done={todo.isDone}>
+                  {todo.label}
+                </span>
                 {/* TODO: add functionality to make todo done */}
                 <div
-                  onClick={() => {}}
+                  onClick={() => makeTodoDone(index)}
                   title="make done"
                   className="TodoList-Icon"
                 >
