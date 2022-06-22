@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import TodoCreation from "../TodoCreation";
 import CategoriesList from "../CategoriesList";
 import TodoLists from "../TodoLists";
@@ -11,6 +11,8 @@ const TodoContainer = () => {
   const [todos, setTodos] = useState<ITodoList[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [showingCategory, setShowingCategory] = useState("All");
+
+  const todosBeforeDelete = useRef([...todos]);
 
   const addTodo = (label: string, category: string, isDone = false) => {
     label = label.trim();
@@ -27,6 +29,8 @@ const TodoContainer = () => {
   };
 
   const deleteTodo = (deleteIndex: number) => {
+    todosBeforeDelete.current = [...todos];
+
     setTodos((prev) => {
       const newState: ITodoList[] = [];
 
@@ -39,6 +43,8 @@ const TodoContainer = () => {
       return newState;
     });
   };
+
+  const undeleteTodo = () => setTodos([...todosBeforeDelete.current]);
 
   const addCategory = (category: string) => {
     category = category.trim();
@@ -87,6 +93,7 @@ const TodoContainer = () => {
         todos={todos}
         deleteTodo={deleteTodo}
         showingCategory={showingCategory}
+        undeleteTodo={undeleteTodo}
       />
     </div>
   );

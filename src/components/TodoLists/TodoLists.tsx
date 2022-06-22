@@ -10,10 +10,16 @@ import "./TodoLists.css";
 interface Props {
   todos: ITodoList[];
   deleteTodo: (index: number) => void;
+  undeleteTodo: () => void;
   showingCategory: string;
 }
 
-const TodoLists: FC<Props> = ({ todos, deleteTodo, showingCategory }) => {
+const TodoLists: FC<Props> = ({
+  todos,
+  deleteTodo,
+  undeleteTodo,
+  showingCategory,
+}) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   return (
@@ -33,7 +39,10 @@ const TodoLists: FC<Props> = ({ todos, deleteTodo, showingCategory }) => {
                   &#10004;
                 </div>
                 <div
-                  onClick={() => deleteTodo(index)}
+                  onClick={() => {
+                    deleteTodo(index);
+                    setIsDeleteModalOpen(true);
+                  }}
                   title="delete todo"
                   className="TodoList-Icon"
                 >
@@ -52,7 +61,10 @@ const TodoLists: FC<Props> = ({ todos, deleteTodo, showingCategory }) => {
       </ul>
 
       {isDeleteModalOpen && (
-        <UndeleteModal close={() => setIsDeleteModalOpen(false)} />
+        <UndeleteModal
+          close={() => setIsDeleteModalOpen(false)}
+          undeleteTodo={undeleteTodo}
+        />
       )}
     </>
   );

@@ -5,9 +5,10 @@ import "./UndeleteModal.css";
 
 interface Props {
   close: () => any;
+  undeleteTodo: () => void;
 }
 
-const UndeleteModal = ({ close }: Props) => {
+const UndeleteModal = ({ close, undeleteTodo }: Props) => {
   const [countdown, setCountdown] = useState(7);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const UndeleteModal = ({ close }: Props) => {
       <button
         className="Btn Btn_Blue UndeleteModal-Btn UndeleteModal-Elem"
         onClick={() => {
+          undeleteTodo();
           close();
         }}
       >
