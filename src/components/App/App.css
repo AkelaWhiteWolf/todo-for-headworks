@@ -18,6 +18,8 @@
   --main-yellow-hover: rgb(231, 231, 124);
 
   --main-border-radius: 7px;
+
+  --box-shadow-little: 0 0 4px 0.5px grey;
 }
 
 .Body {

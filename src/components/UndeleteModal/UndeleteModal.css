@@ -1,0 +1,23 @@
+.UndeleteModal {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  box-shadow: var(--box-shadow-little);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.Body-UndeleteModal {
+  width: 100%;
+  max-width: 300px;
+}
+
+.UndeleteModal-Elem {
+  margin: 10px;
+}
+
+.UndeleteModal-Btn {
+  width: 100px;
+  height: 25px;
+}
