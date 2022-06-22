@@ -10,6 +10,7 @@ import "./TodoContainer.css";
 const TodoContainer = () => {
   const [todos, setTodos] = useState<ITodoList[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
+  console.log(categories);
   const [showingCategory, setShowingCategory] = useState("All");
 
   const todosBeforeDelete = useRef([...todos]);
@@ -69,20 +70,33 @@ const TodoContainer = () => {
   const addCategory = (category: string) => {
     category = category.trim();
 
-    if (category) {
+    if (category && !categories.includes(category)) {
       setCategories((prev) => [...prev, category]);
     }
   };
 
   const deleteCategory = (categoryToDelete: string) => {
-    const newState: string[] = [];
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.category === categoryToDelete) {
+          const newTodo = { ...todo };
+          newTodo.category = "All";
+
+          return newTodo;
+        }
+
+        return todo;
+      })
+    );
 
     setCategories((prev) => {
-      prev.forEach((category) => {
+      const newState: string[] = [];
+
+      for (let category of prev) {
         if (category !== categoryToDelete) {
           newState.push(category);
         }
-      });
+      }
 
       return newState;
     });

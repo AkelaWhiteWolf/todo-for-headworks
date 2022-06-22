@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 
 import ChooseCategoryContainer from "../ChooseCategoryContainer";
 
@@ -15,6 +15,12 @@ const TodoCreation: FC<Props> = ({ addTodo, categories, addCategory }) => {
   const todoInput = useRef(null);
 
   const chooseCategory = (category: string) => setCurrentCategory(category);
+
+  useEffect(() => {
+    if (!categories.includes(currentCategory)) {
+      setCurrentCategory("All");
+    }
+  }, [categories.length]);
 
   return (
     <div className="TodoCreation TodoContainer-Creation">
