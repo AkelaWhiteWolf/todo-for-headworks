@@ -12,6 +12,8 @@ const UndeleteModal = ({ close, undeleteTodo }: Props) => {
   const [countdown, setCountdown] = useState(7);
 
   useEffect(() => {
+    setCountdown(7);
+
     let countToClearInterval = countdown;
 
     const interval = setInterval(() => {

@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
+import { flushSync } from "react-dom";
 
-import ChooseCategoryContainer from "../ChooseCategoryContainer";
 import UndeleteModal from "../UndeleteModal";
 
 import { ITodoList } from "../../types/ITodoList";
@@ -34,7 +34,6 @@ const TodoLists: FC<Props> = ({
                 <span className="TodoList-Label" data-is-done={todo.isDone}>
                   {todo.label}
                 </span>
-                {/* TODO: add functionality to make todo done */}
                 <div
                   onClick={() => makeTodoDone(index)}
                   title="make done"
@@ -46,7 +45,8 @@ const TodoLists: FC<Props> = ({
                 <div
                   onClick={() => {
                     deleteTodo(index);
-                    setIsDeleteModalOpen(true);
+                    flushSync(() => setIsDeleteModalOpen(false));
+                    flushSync(() => setIsDeleteModalOpen(true));
                   }}
                   title="delete todo"
                   className="TodoList-Icon"
