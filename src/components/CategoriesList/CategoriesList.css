@@ -1,5 +1,6 @@
 .CategoriesListContainer {
   display: flex;
+  flex-wrap: wrap;
 }
 .Body-CategoriesListContainer {
   margin: 30px 0;
