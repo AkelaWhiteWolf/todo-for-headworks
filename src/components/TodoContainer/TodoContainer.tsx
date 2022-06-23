@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TodoCreation from "../TodoCreation";
 import CategoriesList from "../CategoriesList";
 import TodoLists from "../TodoLists";
@@ -7,11 +7,23 @@ import { ITodoList } from "../../types/ITodoList";
 
 import "./TodoContainer.css";
 
+const localTodos = localStorage.getItem("todos")
+  ? JSON.parse(localStorage.getItem("todos") as string)
+  : [];
+
+const localCategories = localStorage.getItem("categories")
+  ? JSON.parse(localStorage.getItem("categories") as string)
+  : [];
+
 const TodoContainer = () => {
-  const [todos, setTodos] = useState<ITodoList[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  console.log(categories);
+  const [todos, setTodos] = useState<ITodoList[]>(localTodos);
+  const [categories, setCategories] = useState<string[]>(localCategories);
   const [showingCategory, setShowingCategory] = useState("All");
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("categories", JSON.stringify(categories));
+  });
 
   const todosBeforeDelete = useRef([...todos]);
 
